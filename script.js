@@ -23,7 +23,6 @@ function processaTexto(texto) {
 
     const frequencias = contaFrequencias(palavras);
 
-    // Ordena a palavra por frequência
     function ordenaPalavra(p1, p2) {
         return frequencias[p2] - frequencias[p1];
     }
@@ -45,14 +44,12 @@ function tiraPalavrasRuins(palavras) {
 function contaFrequencias(palavras) {
     const frequencias = {};
 
-    for (let i of palavras) {
-        frequencias[i] = 0;
-        for (let j of palavras) {
-            if (i == j) {
-                frequencias[i]++;
-            }
+    for (let palavra of palavras) {
+        if (frequencias[palavra]) {
+            frequencias[palavra]++;
+        } else {
+            frequencias[palavra] = 1;
         }
     }
-
     return frequencias;
 }
